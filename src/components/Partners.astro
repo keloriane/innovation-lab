@@ -1,0 +1,75 @@
+---
+import Actiris from "../assets/partners/Actiris-logo.png"
+import CLL from "../assets/partners/CLL-logo.png"
+import EIP from "../assets/partners/EIP-logo.png"
+import Forem from "../assets/partners/Forem-logo.png"
+import WBI from "../assets/partners/WBI-logo.png"
+const partners =  [Actiris, CLL, EIP, Forem, WBI]
+---
+<script>
+  import Swiper from "swiper";
+  import "swiper/css";
+  const swiper = new Swiper(".partners__swiper", {
+
+    slidesPerView: 3.5,
+    centeredSlides:true,
+    initialSlide:2,
+    loop:true,
+    spaceBetween:30,
+    breakpoints:{
+      809:{
+        centeredSlides:false,
+        loop:true,
+        slidesPerView: 5,
+        spaceBetween:124
+      }
+    }
+  });
+  setInterval(()=>{
+    swiper.slideNext()
+  }, 3000)
+</script>
+
+<section class="partners">
+  <div class="partners__swiper swiper">
+    <div class="partners__swiper-wrapper swiper-wrapper">
+      {
+        partners.map((partner, index) => (
+          <div class="swiper-slide partners__swiper-slide">
+            <figure class="partners__logo">
+              <img src={partner} alt=""/>
+              </figure>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .partners{
+    padding: 50px 0;
+    max-width: 1300px;
+    margin: 100px auto;
+    border-top: 1px solid #C1CCCD;
+    border-bottom: 1px solid #C1CCCD;
+  }
+  .partners__logo{
+    height: 90px;
+    width: 160px;
+  }
+  .partners__logo img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+  @media (max-width:809px){
+    .partners{
+      padding: 24px 0;
+    }
+    .partners__logo{
+      height: 45px;
+      width: 80px;
+    }
+  }
+</style>

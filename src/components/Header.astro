@@ -1,0 +1,71 @@
+---
+import Logo from "../assets/logo.svg"
+const links  = [
+  {
+    href:'#about',
+    label:'about'
+  },
+  {
+    href:'#services',
+    label:'services'
+  },
+
+  {
+    href:'#contact',
+    label:'contact'
+  }
+]
+---
+<header class="header">
+  <a title="Home" class="header__home-link" href="/">
+  <figure class="header__logo">
+    <img src={Logo} alt=""></figure></a>
+  <nav>
+    <ul class="nav">
+     {links.map((link,index)=><li class="nav__item"><a class:list={[
+      "nav__link",
+     ]} href={link.href}>{link.label}</a></li>)}
+    </ul>
+  </nav>
+</header>
+<style>
+
+.header{
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 80px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav{
+    display: flex;
+    gap:1.875rem;
+    color:white;
+  }
+  .header__logo{
+    max-width: 200px;
+  }
+  .nav__link{
+    font-size: 1.125rem;
+    line-height: 165%;
+  }
+  .nav__item:hover{
+    text-decoration: underline;
+  }
+  @media(max-width:809px){
+    .nav__link{
+    font-size: 1rem;
+  }
+    .header{
+      padding-top: 64px;
+    }
+    .header__logo{
+      max-width: 156px;
+    }
+    .nav{
+      flex-direction: column;
+      gap:18px;
+    }
+  }
+</style>
